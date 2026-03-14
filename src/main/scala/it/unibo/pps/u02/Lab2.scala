@@ -8,7 +8,6 @@ object Lab2 extends App {
   println("\n------ Test: println() ")
   println("Hello, Scala")
 
-
   // Task 2 (On “exploring autonomously” in the REPL), svolto con Thomas Testa
   // multiplication
   def mult(x: Double, y: Double): Double = x * y
@@ -80,9 +79,8 @@ object Lab2 extends App {
 
   // Task 4 (Currying), svolto con Thomas Testa
   // x ≤ y = z
-
   println("\n------ Task 4 ------")
-  println("\nval-curried")
+  println("val-curried")
   val p1: (x: Int) => (y: Int) => (z: Int) => Boolean = x => y => z => (x < y) && (y == z)
   println("p1(2)(3)(3): " + p1(2)(3)(3)) // true
   println("p1(2)(4)(3): " + p1(2)(4)(3)) // false
@@ -108,19 +106,25 @@ object Lab2 extends App {
 
   // Task 5 (Create a function that implements functional compositions), svolto con Thomas Testa
   // (f ◦ g)(x) = f(g(x))
-
-  // composite function definition
+  println("\n------ Task 5 ------")
   val compose: (Int, Int => Int, Int => Int) => Int = (x, f, g) => f(g(x))
 
   val f: Int => Int = _ * 4
   val g: Int => Int = _ + 2
   val res = compose(2, f, g) // 4 * (2 + 2) = 16
-  println(res)
 
-  println(compose(10, _ + 1, _ * 2)) // 21
+  println("compose(2, f, g) -> \"4 * (2 + 2) = 16\": " + res)
+  println("oppure")
+  println("compose(2, _ * 4, _ + 2): " + compose(2, _ * 4, _ + 2)) // 21
 
   // Task 6 (Create a recursive function to calculate the power of a number), svolto con Thomas Testa
+  println("\n------ Task 6 ------")
+  def power(b: Int, e: Int): Int = e match
+    case 0 => 1
+    case _ => b * power(b, e - 1)
 
+  println("power(2, 3): " + power(2, 3))
+  println("power(2, 0): " + power(2, 0))
 
   // Task 7 (Create a function to reverse the digits of an integer using recursion), svolto con Thomas Testa
 
