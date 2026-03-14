@@ -79,7 +79,31 @@ object Lab2 extends App {
   println(s"notEmpty(\"foo\") && !notEmpty(\"\"): ${notEmpty("foo") && !notEmpty("")}") // false
 
   // Task 4 (Currying), svolto con Thomas Testa
+  // x ≤ y = z
+  println("\n------ Task 4 ------")
+  println("\nval-curried")
+  val p1: (x: Int) => (y: Int) => (z: Int) => Boolean = x => y => z => (x < y) && (y == z)
+  println("p1(2)(3)(3): " + p1(2)(3)(3)) // true
+  println("p1(2)(4)(3): " + p1(2)(4)(3)) // false
+  println("p1(4)(3)(3): " + p1(4)(3)(3)) // false
 
+  println("\nval-not curried")
+  val p2: (x: Int, y: Int, z: Int) => Boolean = (x, y, z) => (x < y) && (y == z)
+  println("p2(2,3,3): " + p2(2,3,3)) // true
+  println("p2(2,4,3): " + p2(2,4,3)) // false
+  println("p2(4,3,3): " + p2(4,3,3)) // false
+
+  println("\ndef-curried")
+  def p3(x: Int)(y: Int)(z: Int): Boolean = (x < y) && (y == z)
+  println("p3(2)(3)(3): " + p3(2)(3)(3)) // true
+  println("p3(2)(4)(3): " + p3(2)(4)(3)) // false
+  println("p3(4)(3)(3): " + p3(4)(3)(3)) // false
+
+  println("\ndef-not curried")
+  def p4(x: Int, y: Int, z: Int): Boolean = (x < y) && (y == z)
+  println("p4(2,3,3): " + p4(2,3,3)) // true
+  println("p4(2,4,3): " + p4(2,4,3)) // false
+  println("p4(4,3,3): " + p4(4,3,3)) // false
 
   // Task 5 (Create a function that implements functional compositions), svolto con Thomas Testa
 
