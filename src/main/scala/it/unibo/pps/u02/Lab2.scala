@@ -1,8 +1,10 @@
 package it.unibo.pps.u02
 
+import it.unibo.pps.u02.Lab2.checkNumber
+
 object Lab2 extends App {
 
-  // Task 1 (warm up), svolto da solo
+  // Task 1 (warm up), svolto con Thomas Testa
 
   println("\n------ Test: println() ")
   println("Hello, Scala")
@@ -38,16 +40,42 @@ object Lab2 extends App {
   println(curriedDiv(0)(0)) // NaN
   println(curriedDiv(3)(0)) // Infinity
 
-  // Task 2 (functions), svolto da solo
+  // Task 2 (functions), svolto svolto con Thomas Testa
   val positive: Int => String = _ match
       case x if x < 0 => "negative"
       case _ => "positive"
 
+  val negInt = -10
+  val zero = 0
+  val posInt = 5
+  val noInt = 1.2
+
   println("\n------ Test: function with match-case ")
-  println(positive(2))
-  println(positive(-20))
-  println(positive(0))
-  // println(positive(1.2)) // raises an exception
+  println(positive(negInt))
+  println(positive(zero))
+  println(positive(posInt))
+  // println(positive(noInt)) // raises an exception
+
+  def checkNumber(x: Int): String = x match
+    case x if x < 0 => "negative"
+    case _ => "positive"
+
+  println(checkNumber(negInt))
+  println(checkNumber(zero))
+  println(checkNumber(posInt))
+
+  val empty: String => Boolean = _ == "" // predicate on strings
+
+  println(empty("xxx"))
+
+  val neg: String => String = _ == "" // predicate on strings
+
+  /*
+  val notEmpty = neg(empty) // which type of notEmpty?
+  notEmpty("foo") // true
+  notEmpty("") // false
+  notEmpty("foo") && !notEmpty("")
+*/
 
 
   // Task 3 (recursion), svolto da solo
