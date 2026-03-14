@@ -80,6 +80,7 @@ object Lab2 extends App {
 
   // Task 4 (Currying), svolto con Thomas Testa
   // x ≤ y = z
+
   println("\n------ Task 4 ------")
   println("\nval-curried")
   val p1: (x: Int) => (y: Int) => (z: Int) => Boolean = x => y => z => (x < y) && (y == z)
@@ -106,7 +107,17 @@ object Lab2 extends App {
   println("p4(4,3,3): " + p4(4,3,3)) // false
 
   // Task 5 (Create a function that implements functional compositions), svolto con Thomas Testa
+  // (f ◦ g)(x) = f(g(x))
 
+  // composite function definition
+  val compose: (Int, Int => Int, Int => Int) => Int = (x, f, g) => f(g(x))
+
+  val f: Int => Int = _ * 4
+  val g: Int => Int = _ + 2
+  val res = compose(2, f, g) // 4 * (2 + 2) = 16
+  println(res)
+
+  println(compose(10, _ + 1, _ * 2)) // 21
 
   // Task 6 (Create a recursive function to calculate the power of a number), svolto con Thomas Testa
 
