@@ -4,11 +4,12 @@ import it.unibo.pps.u02.Lab2.checkNumber
 
 object Lab2 extends App {
 
-  // Task 1 (warm up), svolto con Thomas Testa
-
+  // Task 1 (warm up), svolto da solo
   println("\n------ Test: println() ")
   println("Hello, Scala")
 
+
+  // Task 2 (On “exploring autonomously” in the REPL), svolto con Thomas Testa
   // multiplication
   def mult(x: Double, y: Double): Double = x * y
   def curriedMult(x: Double)(y: Double): Double = x * y
@@ -40,7 +41,7 @@ object Lab2 extends App {
   println(curriedDiv(0)(0)) // NaN
   println(curriedDiv(3)(0)) // Infinity
 
-  // Task 2 (functions), svolto con Thomas Testa
+  // Task 3.a (functions), svolto con Thomas Testa
   val negInt = -10
   val zero = 0
   val posInt = 5
@@ -65,26 +66,34 @@ object Lab2 extends App {
   println(s"$zero is ${checkNumber(zero)}")
   println(s"$posInt is ${checkNumber(posInt)}")
 
-/*
+  // Task 3.b, svolto con Thomas Testa
+  println("\n------ Test: function with match-case ")
   val empty: String => Boolean = _ == "" // predicate on strings
-  println(empty("xxx"))
-  val neg: String => String = _ == "" // predicate on strings
-*/
-  /*
+  println("empty(\"pippo\"): " + empty("pippo"))
+
+  val neg: ((String => Boolean)) => (String => Boolean) = f => (s => !f(s))
   val notEmpty = neg(empty) // which type of notEmpty?
-  notEmpty("foo") // true
-  notEmpty("") // false
-  notEmpty("foo") && !notEmpty("")
-*/
+
+  println("notEmpty(\"foo\"): " + notEmpty("foo")) // true
+  println("notEmpty(\"\"): " + notEmpty("")) // false
+  println(s"notEmpty(\"foo\") && !notEmpty(\"\"): ${notEmpty("foo") && !notEmpty("")}") // false
+
+  // Task 4 (Currying), svolto con Thomas Testa
 
 
-  // Task 3 (recursion), svolto con Thomas Testa
+  // Task 5 (Create a function that implements functional compositions), svolto con Thomas Testa
 
 
-  // Task 4 (sum types, product types, modules), svolto con Thomas Testa
+  // Task 6 (Create a recursive function to calculate the power of a number), svolto con Thomas Testa
 
 
-  // Task 5 (more functional combinators), svolto con Thomas Testa
+  // Task 7 (Create a function to reverse the digits of an integer using recursion), svolto con Thomas Testa
+
+
+  // Task 8 ( Define a sum type Expr to represent arithmetic expressions), svolto con Thomas Testa
+
+
+  // Task 9 ( Look at tasks5.Optionals), svolto con Thomas Testa
 
 
 }
