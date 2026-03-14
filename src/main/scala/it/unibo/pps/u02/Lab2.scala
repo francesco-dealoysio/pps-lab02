@@ -40,36 +40,36 @@ object Lab2 extends App {
   println(curriedDiv(0)(0)) // NaN
   println(curriedDiv(3)(0)) // Infinity
 
-  // Task 2 (functions), svolto svolto con Thomas Testa
-  val positive: Int => String = _ match
-      case x if x < 0 => "negative"
-      case _ => "positive"
-
+  // Task 2 (functions), svolto con Thomas Testa
   val negInt = -10
   val zero = 0
   val posInt = 5
   val noInt = 1.2
 
+  println("\n------ Test: function literal (like lambda) with match-case ")
+  val positive: Int => String = _ match
+  case x if x < 0 => "negative"
+  case _ => "positive"
+
+  println(s"$negInt is ${positive(negInt)}")
+  println(s"$zero is ${positive(zero)}")
+  println(s"$posInt is ${positive(posInt)}")
+  //println(s"$noInt is ${positive(noInt)}") // raises an exception
+
   println("\n------ Test: function with match-case ")
-  println(positive(negInt))
-  println(positive(zero))
-  println(positive(posInt))
-  // println(positive(noInt)) // raises an exception
-
   def checkNumber(x: Int): String = x match
-    case x if x < 0 => "negative"
-    case _ => "positive"
+  case x if x < 0 => "negative"
+  case _ => "positive"
 
-  println(checkNumber(negInt))
-  println(checkNumber(zero))
-  println(checkNumber(posInt))
+  println(s"$negInt is ${checkNumber(negInt)}")
+  println(s"$zero is ${checkNumber(zero)}")
+  println(s"$posInt is ${checkNumber(posInt)}")
 
+/*
   val empty: String => Boolean = _ == "" // predicate on strings
-
   println(empty("xxx"))
-
   val neg: String => String = _ == "" // predicate on strings
-
+*/
   /*
   val notEmpty = neg(empty) // which type of notEmpty?
   notEmpty("foo") // true
@@ -78,13 +78,13 @@ object Lab2 extends App {
 */
 
 
-  // Task 3 (recursion), svolto da solo
+  // Task 3 (recursion), svolto con Thomas Testa
 
 
-  // Task 4 (sum types, product types, modules), svolto da solo
+  // Task 4 (sum types, product types, modules), svolto con Thomas Testa
 
 
-  // Task 5 (more functional combinators), svolto da solo
+  // Task 5 (more functional combinators), svolto con Thomas Testa
 
 
 }
