@@ -50,20 +50,20 @@ object Lab2 extends App {
   /* val-curried deslcaration */
   val p1: (x: Int) => (y: Int) => (z: Int) => Boolean =
     x => y => z =>
-      x < y && y == z
+      x <= y && y == z
 
   /* val-not curried declaration */
   val p2: (x: Int, y: Int, z: Int) => Boolean =
     (x, y, z) =>
-      x < y && y == z
+      x <= y && y == z
 
   /* def-curried declatation */
   def p3(x: Int)(y: Int)(z: Int): Boolean =
-    x < y && y == z
+    x <= y && y == z
 
   /* def-not curried declaration */
   def p4(x: Int, y: Int, z: Int): Boolean =
-    x < y && y == z
+    x <= y && y == z
 
   // Task 5 (Create a function that implements functional compositions), svolto con Thomas Testa
   // (f ◦ g)(x) = f(g(x))
@@ -132,7 +132,7 @@ object Lab2 extends App {
       case Expr.Multiply(left, right) =>
         "(" + show(left) + " * " + show(right) + ")"
 
-  // Task 9 ( Look at tasks5.Optionals)
+  // Task 9 (Look at tasks5.Optionals)
   // not done
 
   @main def testLab2(): Unit =
@@ -208,22 +208,22 @@ object Lab2 extends App {
     println("----------------------------------------")
 
     println("### check 'x ≤ y = z' (val-curried)")
-    println("p1(2)(3)(3): " + p1(2)(3)(3)) // true
+    println("p1(3)(3)(3): " + p1(3)(3)(3)) // true
     println("p1(2)(4)(3): " + p1(2)(4)(3)) // false
     println("p1(4)(3)(3): " + p1(4)(3)(3)) // false
 
     println("\n### check 'x ≤ y = z' val-not curried")
-    println("p2(2,3,3): " + p2(2, 3, 3)) // true
+    println("p2(3,3,3): " + p2(3, 3, 3)) // true
     println("p2(2,4,3): " + p2(2, 4, 3)) // false
     println("p2(4,3,3): " + p2(4, 3, 3)) // false
 
     println("\n### check 'x ≤ y = z' def-curried")
-    println("p3(2)(3)(3): " + p3(2)(3)(3)) // true
+    println("p3(3)(3)(3): " + p3(3)(3)(3)) // true
     println("p3(2)(4)(3): " + p3(2)(4)(3)) // false
     println("p3(4)(3)(3): " + p3(4)(3)(3)) // false
 
     println("\n### check 'x ≤ y = z' def-not curried")
-    println("p4(2,3,3): " + p4(2, 3, 3)) // true
+    println("p4(3,3,3): " + p4(3, 3, 3)) // true
     println("p4(2,4,3): " + p4(2, 4, 3)) // false
     println("p4(4,3,3): " + p4(4, 3, 3)) // false
 
