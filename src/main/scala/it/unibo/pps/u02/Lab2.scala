@@ -41,7 +41,7 @@ object Lab2 extends App {
   /* function accepting predicate string */
   val empty: String => Boolean = _ == ""
 
-  val neg: ((String => Boolean)) => (String => Boolean) = f => (s => !f(s))
+  val neg: (String => Boolean) => (String => Boolean) = f => (s => !f(s))
   val notEmpty = neg(empty) // which type of notEmpty?
 
   // Task 4 (Currying), svolto con Thomas Testa
