@@ -19,7 +19,7 @@ object Optionals:
       case Just(a) => a
       case _       => orElse
     
-    def mapInt(opt: OptionalInt)(f: Int => Int): OptionalInt = opt match 
+    def mapInt(opt: OptionalInt)(f: Int => Int): OptionalInt = opt match
       case Just(a) => Just(f(a))
       case Empty() => Empty()
 
@@ -42,7 +42,7 @@ object Optionals:
   println(orElse(s2, 0)) // 0
 
   // test esecuzione task
-  println("mapInt(Just(5))(_ + 1): " + mapInt(Just(5))(_ + 1)) // Just(5)
+  println("mapInt(Just(5))(_ + 1): " + mapInt(Just(5))(_ + 1)) // Just(6)
   println("mapInt(Empty())(_ + 1): " + mapInt(Empty())(_ + 1)) // Empty()
   println("filter(Just(5))(_ > 2): " + filter(Just(5))(_ > 2)) // Just(5)
   println("filter(Just(5))(_ > 8): " + filter(Just(5))(_ > 8)) // Empty()
